@@ -1,7 +1,6 @@
 import { cardTarea } from "./components/cardTarea.js"
 
 const formNewTarea = document.getElementById('newTarea')
-console.log(formNewTarea)
 
 function obtenerTarea() {
   if (localStorage.getItem('tareasData')) {
@@ -15,7 +14,6 @@ function obtenerTarea() {
 
 function mostrarTareas() {
   const tareas = obtenerTarea();
-  console.log(obtenerTarea)
   const listaTareas = document.getElementById('tareasContainer');
   listaTareas.innerHTML = '';
 
@@ -35,10 +33,8 @@ formNewTarea.addEventListener('submit', (e) => {
   const newIndex = tareas.length 
 
   const newTarea = {id: newIndex ,titulo: titulo, descripcion: descripcion, fechaLimite: fechaLimite, estado: estado};
-  console.log(newTarea)
   tareas.push(newTarea);
   localStorage.setItem('tareasData', JSON.stringify(tareas))
-  console.log('tarea agregada:', newTarea);
   mostrarTareas()
 })
 
